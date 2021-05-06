@@ -16,7 +16,7 @@ include $(srctree)/techpack/audio/config/konaauto.conf
 endif
 ifeq ($(CONFIG_ARCH_LITO), y)
 include $(srctree)/techpack/audio/config/litoauto.conf
-export
+export  $(shell sed 's/=.*//' $(srctree)/techpack/audio/config/litoauto.conf)
 endif
 ifeq ($(CONFIG_ARCH_SDM660), y)
 include $(srctree)/techpack/audio/config/sdm660auto.conf
