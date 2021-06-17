@@ -4,7 +4,6 @@
  *
  * Copyright (c) 2012 Samsung Electronics Co., Ltd.
  *             http://www.samsung.com/
- * Copyright (C) 2021 XiaoMi, Inc.
  */
 #include <linux/fs.h>
 #include <linux/f2fs_fs.h>
@@ -699,8 +698,6 @@ void f2fs_evict_inode(struct inode *inode)
 	f2fs_remove_dirty_inode(inode);
 
 	f2fs_destroy_extent_tree(inode);
-
-	f2fs_remove_xattr_set_inode(inode);
 
 	if (inode->i_nlink || is_bad_inode(inode))
 		goto no_delete;
